@@ -1,20 +1,9 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
-import shortid from 'shortid';
 import actions from './contacts-actions';
 
 const items = createReducer([], {
-  [actions.addContact]: (state, { payload }) => {
-    state.find(
-      contact => payload.name.toLowerCase() === contact.name.toLowerCase(),
-    )
-      ? alert(`${payload.name} is alredy in contacts`)
-      : state.push({
-          id: shortid.generate(),
-          name: payload.name,
-          number: payload.number,
-        });
-  },
+  [actions.addContact]: (state, { payload }) => [...state, payload],
   [actions.deleteContacts]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });

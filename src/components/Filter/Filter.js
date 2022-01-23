@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFilter } from '../../redux/contacts/contacts-selectors';
 import actions from '../../redux/contacts/contacts-actions';
@@ -24,10 +23,5 @@ function Filter() {
     </>
   );
 }
-
-// Filter.propTypes = {
-//   value: PropTypes.string,
-//   onChange: PropTypes.func,
-// };
 
 export default Filter;
